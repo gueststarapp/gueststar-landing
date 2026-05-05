@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GuestStar — Never lose a customer to an unanswered review again</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid #f0ede8; max-width: 1000px; margin: 0 auto; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .logo span { color: #D85A30; }
+    .nav-cta { background: #D85A30; color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 4rem 1.5rem 3rem; max-width: 700px; margin: 0 auto; }
+    .badge { display: inline-block; background: #FAECE7; color: #993C1D; font-size: 12px; font-weight: 500; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.5rem; }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 50px); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -1px; }
+    h1 em { color: #D85A30; font-style: italic; }
+    .sub { font-size: 17px; color: #555; max-width: 500px; margin: 0 auto 2rem; line-height: 1.65; font-weight: 300; }
+    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .btn-primary { background: #D85A30; color: #fff; border: none; padding: 15px 30px; border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-secondary { background: transparent; color: #1a1a1a; border: 1px solid #ddd; padding: 15px 30px; border-radius: 10px; font-size: 15px; font-weight: 400; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .fine { font-size: 12px; color: #999; margin-top: 0.5rem; }
+
+    /* PAIN CARDS */
+    .pain { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+    .pain-card { background: #faf9f7; border-radius: 14px; padding: 1.5rem; border: 1px solid #f0ede8; }
+    .pain-icon { font-size: 24px; margin-bottom: 0.75rem; }
+    .pain-card strong { font-size: 15px; font-weight: 500; display: block; margin-bottom: 0.5rem; }
+    .pain-card p { font-size: 14px; color: #666; line-height: 1.6; font-weight: 300; }
+
+    /* DIVIDER */
+    hr { border: none; border-top: 1px solid #f0ede8; max-width: 900px; margin: 2.5rem auto; }
+
+    /* HOW IT WORKS */
+    .section { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-label { text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 2px; color: #aaa; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 32px); text-align: center; font-weight: 700; margin-bottom: 2.5rem; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 3rem; }
+    .step { text-align: center; padding: 1.5rem 1rem; }
+    .step-num { width: 44px; height: 44px; border-radius: 50%; background: #FAECE7; color: #993C1D; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; margin: 0 auto 1rem; font-family: 'Playfair Display', serif; }
+    .step h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
+    .step p { font-size: 13px; color: #666; line-height: 1.6; font-weight: 300; }
+
+    /* PRICING */
+    .pricing-wrap { max-width: 420px; margin: 0 auto 3.5rem; padding: 0 1.5rem; }
+    .pricing { background: #faf9f7; border-radius: 18px; border: 1px solid #f0ede8; padding: 2.5rem; text-align: center; }
+    .price-badge { display: inline-block; background: #EAF3DE; color: #3B6D11; font-size: 11px; font-weight: 500; padding: 4px 14px; border-radius: 20px; margin-bottom: 1rem; }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; line-height: 1; margin: 0.5rem 0 0.25rem; }
+    .price-amount sup { font-size: 24px; vertical-align: super; }
+    .price-amount sub { font-size: 16px; font-weight: 400; color: #888; font-family: 'DM Sans', sans-serif; }
+    .price-note { font-size: 13px; color: #888; margin: 0.5rem 0 0; font-weight: 300; }
+    .price-features { list-style: none; margin: 1.75rem 0; text-align: left; }
+    .price-features li { font-size: 14px; padding: 8px 0; border-bottom: 1px solid #f0ede8; color: #555; display: flex; align-items: center; gap: 10px; font-weight: 300; }
+    .price-features li:last-child { border-bottom: none; }
+    .check { width: 20px; height: 20px; border-radius: 50%; background: #EAF3DE; color: #3B6D11; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+
+    /* FINAL CTA */
+    .final { text-align: center; padding: 2rem 1.5rem 5rem; max-width: 600px; margin: 0 auto; }
+    .final p { font-size: 16px; color: #666; margin: 1rem 0 2rem; font-weight: 300; }
+
+    /* EMAIL FORM */
+    .email-form { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .email-input { padding: 14px 18px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; font-family: 'DM Sans', sans-serif; width: 260px; outline: none; }
+    .email-input:focus { border-color: #D85A30; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem; font-size: 12px; color: #bbb; border-top: 1px solid #f0ede8; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Guest<span>Star</span></div>
+    <button class="nav-cta">Start free trial</button>
+  </nav>
+
+  <section class="hero">
+    <div class="badge">For restaurant owners</div>
+    <h1>Never lose a customer to an <em>unanswered review</em> again</h1>
+    <p class="sub">GuestStar brings all your Google and Facebook reviews into one place — and helps you respond in seconds with AI.</p>
+    <div class="cta-row">
+      <button class="btn-primary">Start your free 14-day trial →</button>
+      <button class="btn-secondary">See how it works</button>
+    </div>
+    <p class="fine">No credit card required. Cancel anytime.</p>
+  </section>
+
+  <div class="pain">
+    <div class="pain-card">
+      <div class="pain-icon">⭐</div>
+      <strong>One ignored review costs you 30 customers</strong>
+      <p>Potential customers read your reviews before walking in. Silence tells them you don't care.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏰</div>
+      <strong>You're too busy to check reviews every day</strong>
+      <p>Between the kitchen, the staff, and the bills — who has time to monitor Google and Facebook?</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">📊</div>
+      <strong>Your competitors are responding. You're not.</strong>
+      <p>Customers compare side by side. A restaurant that replies always looks more trustworthy.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Up and running in 2 minutes</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Connect your profiles</h3>
+        <p>Link your Google Business and Facebook page. Takes under 2 minutes, no tech skills needed.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>See every review in one place</h3>
+        <p>All your reviews from every platform appear in one simple, clean dashboard.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Reply in seconds with AI</h3>
+        <p>GuestStar drafts the perfect response for each review. You approve and send — done.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Simple, affordable, no surprises</h2>
+  </div>
+
+  <div class="pricing-wrap">
+    <div class="pricing">
+      <div class="price-badge">Most popular</div>
+      <div class="price-amount"><sup>$</sup>19<sub>/month</sub></div>
+      <p class="price-note">Everything you need to protect your reputation</p>
+      <ul class="price-features">
+        <li><div class="check">✓</div> Google & Facebook reviews in one dashboard</li>
+        <li><div class="check">✓</div> AI-generated reply suggestions</li>
+        <li><div class="check">✓</div> Instant alerts for new negative reviews</li>
+        <li><div class="check">✓</div> Unlimited reviews & responses</li>
+        <li><div class="check">✓</div> Cancel anytime</li>
+      </ul>
+      <button class="btn-primary" style="width:100%; padding:15px;">Start free 14-day trial →</button>
+      <p class="fine" style="margin-top:0.75rem;">No credit card required</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="final">
+    <h2 class="section-title">Join restaurant owners who stopped losing customers to ignored reviews</h2>
+    <p>It takes 2 minutes to set up. Your reputation starts improving today.</p>
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="Enter your email" />
+      <button class="btn-primary">Get started free →</button>
+    </div>
+    <p class="fine" style="margin-top:1rem;">No credit card required. 14-day free trial.</p>
+  </div>
+
+  <footer>
+    © 2026 GuestStar · mygueststar.com · All rights reserved
+  </footer>
+
+</body>
+</html>
