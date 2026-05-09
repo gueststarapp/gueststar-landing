@@ -129,6 +129,7 @@
 
   <script>
     function submitWaitlist() {
+      var iframe = document.getElementById("hidden_iframe");
       const name = document.getElementById('nameInput').value.trim();
       const email = document.getElementById('emailInput').value.trim();
       const restaurant = document.getElementById('restaurantInput').value.trim();
@@ -138,7 +139,7 @@
       }
       const form = document.createElement('form');
       form.method = 'POST';
-      form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSf_PLACEHOLDER/formResponse';
+      form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSflQ6vR05dB_YYclBYWmEhKoDrcdLf4FS2WJFw9w4zxCZ5XJg/formResponse';
       form.target = 'hidden_iframe';
       form.style.display = 'none';
       document.body.appendChild(form);
