@@ -25,6 +25,7 @@
     .form-input { padding: 13px 16px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; font-family: 'DM Sans', sans-serif; outline: none; width: 100%; }
     .form-input:focus { border-color: #D85A30; }
     .btn-primary { background: #D85A30; color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; width: 100%; }
+    .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
     .fine { font-size: 12px; color: #999; margin-top: 0.5rem; text-align: center; }
     .success-msg { display: none; background: #EAF3DE; color: #3B6D11; border-radius: 10px; padding: 1rem; text-align: center; font-size: 14px; margin-top: 10px; }
     .pain { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
@@ -115,9 +116,7 @@
         <input class="form-input" type="email" id="emailInput" placeholder="Your email address" />
         <input class="form-input" type="text" id="restaurantInput" placeholder="Restaurant name" />
       </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSflQ6vR05dB_YYclBYWmEhKoDrcdLf4FS2WJFw9w4zxCZ5XJg/viewform" target="_blank" style="text-decoration:none;">
-        <button class="btn-primary">Get early access — it's free →</button>
-      </a>
+      <button class="btn-primary" id="submitBtn" onclick="submitWaitlist()">Get early access — it's free →</button>
       <p class="fine">No credit card. No commitment. Just free early access.</p>
       <div class="success-msg" id="successMsg">
         ✅ You're on the list! We'll reach out personally within 24 hours.
@@ -131,35 +130,14 @@
 
   <script>
     function submitWaitlist() {
-      var iframe = document.getElementById("hidden_iframe");
-      const name = document.getElementById('nameInput').value.trim();
-      const email = document.getElementById('emailInput').value.trim();
-      const restaurant = document.getElementById('restaurantInput').value.trim();
+      var name = document.getElementById('nameInput').value.trim();
+      var email = document.getElementById('emailInput').value.trim();
+      var restaurant = document.getElementById('restaurantInput').value.trim();
       if (!name || !email || !restaurant) {
         alert('Please fill in all fields.');
         return;
       }
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSflQ6vR05dB_YYclBYWmEhKoDrcdLf4FS2WJFw9w4zxCZ5XJg/formResponse';
-      form.target = 'hidden_iframe';
-      form.style.display = 'none';
-      document.body.appendChild(form);
-      document.getElementById('successMsg').style.display = 'block';
-      document.getElementById('nameInput').value = '';
-      document.getElementById('emailInput').value = '';
-      document.getElementById('restaurantInput').value = '';
-    }
-<script>
-    function submitWaitlist() {
-      const name = document.getElementById('nameInput').value.trim();
-      const email = document.getElementById('emailInput').value.trim();
-      const restaurant = document.getElementById('restaurantInput').value.trim();
-      if (!name || !email || !restaurant) {
-        alert('Please fill in all fields.');
-        return;
-      }
-      const btn = document.querySelector('.btn-primary');
+      var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Sending...';
       fetch('https://script.google.com/macros/s/AKfycbwB1rPr2dM0LnUzjiw8Sy1TWrRVgpCNTNnRBSfj6dcnTZI4X8jk0WgfxTAANdJxYFqj/exec', {
@@ -172,15 +150,16 @@
         document.getElementById('nameInput').value = '';
         document.getElementById('emailInput').value = '';
         document.getElementById('restaurantInput').value = '';
-        btn.textContent = 'Sent!';
+        btn.textContent = 'Sent! ✅';
       }).catch(function() {
         document.getElementById('successMsg').style.display = 'block';
         document.getElementById('nameInput').value = '';
         document.getElementById('emailInput').value = '';
         document.getElementById('restaurantInput').value = '';
-        btn.textContent = 'Sent!';
+        btn.textContent = 'Sent! ✅';
       });
     }
   </script>
+
 </body>
 </html>
