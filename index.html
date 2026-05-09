@@ -150,8 +150,37 @@
       document.getElementById('emailInput').value = '';
       document.getElementById('restaurantInput').value = '';
     }
+<script>
+    function submitWaitlist() {
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const restaurant = document.getElementById('restaurantInput').value.trim();
+      if (!name || !email || !restaurant) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      fetch('https://script.google.com/macros/s/AKfycbwB1rPr2dM0LnUzjiw8Sy1TWrRVgpCNTNnRBSfj6dcnTZI4X8jk0WgfxTAANdJxYFqj/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name: name, email: email, restaurant: restaurant})
+      }).then(function() {
+        document.getElementById('successMsg').style.display = 'block';
+        document.getElementById('nameInput').value = '';
+        document.getElementById('emailInput').value = '';
+        document.getElementById('restaurantInput').value = '';
+        btn.textContent = 'Sent!';
+      }).catch(function() {
+        document.getElementById('successMsg').style.display = 'block';
+        document.getElementById('nameInput').value = '';
+        document.getElementById('emailInput').value = '';
+        document.getElementById('restaurantInput').value = '';
+        btn.textContent = 'Sent!';
+      });
+    }
   </script>
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
-
 </body>
 </html>
