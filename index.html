@@ -4,62 +4,847 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuestStar — Never lose a customer to an unanswered review again</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #fff; }
+
+    :root {
+      --brand: #D85A30;
+      --brand-hover: #bf4e28;
+      --bg: #0a0c11;
+      --bg-card: #13151e;
+      --bg-card2: #1a1d28;
+      --border: #232638;
+      --text: #f0f0f0;
+      --text-secondary: #8b95a8;
+      --text-muted: #4a5168;
+      --green: #22c55e;
+      --star: #f59e0b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
     a { color: inherit; text-decoration: none; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid #f0ede8; max-width: 1000px; margin: 0 auto; }
-    .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
-    .logo span { color: #D85A30; }
-    .nav-cta { background: #D85A30; color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-    .hero { text-align: center; padding: 4rem 1.5rem 3rem; max-width: 700px; margin: 0 auto; }
-    .badge { display: inline-block; background: #FAECE7; color: #993C1D; font-size: 12px; font-weight: 500; padding: 5px 16px; border-radius: 20px; margin-bottom: 1.5rem; }
-    h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 50px); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -1px; }
-    h1 em { color: #D85A30; font-style: italic; }
-    .sub { font-size: 17px; color: #555; max-width: 500px; margin: 0 auto 2rem; line-height: 1.65; font-weight: 300; }
-    .waitlist-box { background: #faf9f7; border: 1px solid #f0ede8; border-radius: 16px; padding: 2rem; max-width: 480px; margin: 0 auto; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 30px; height: 30px;
+      background: var(--brand);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+
+    .logo span { color: var(--brand); }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    .nav-link {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--brand-hover); }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3.5rem;
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(216,90,48,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(216,90,48,0.12);
+      color: #f0875a;
+      border: 1px solid rgba(216,90,48,0.25);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 1.75rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 1.25rem;
+      letter-spacing: -1.5px;
+    }
+
+    h1 em { color: var(--brand); font-style: italic; }
+
+    .sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.15s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: var(--brand-hover); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-ghost:hover { border-color: var(--brand); color: var(--text); }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ── APP PREVIEW ── */
+    .preview-wrapper {
+      max-width: 1000px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    .preview-wrapper::before {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 60px;
+      background: radial-gradient(ellipse at center, rgba(216,90,48,0.2) 0%, transparent 70%);
+      filter: blur(20px);
+    }
+
+    .app-mockup {
+      background: #13151e;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .mockup-bar {
+      background: #0f1117;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mockup-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .mockup-url {
+      background: #1a1c23;
+      border-radius: 5px;
+      padding: 4px 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 0 auto;
+      font-family: monospace;
+    }
+
+    .mockup-body {
+      display: flex;
+      height: 420px;
+    }
+
+    /* Sidebar inside mockup */
+    .mockup-sidebar {
+      width: 180px;
+      min-width: 180px;
+      background: #0f1117;
+      border-right: 1px solid var(--border);
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mockup-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 8px 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .mockup-logo-icon {
+      width: 22px; height: 22px;
+      background: var(--brand);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+    }
+
+    .mockup-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .mockup-nav-item.active {
+      background: var(--brand);
+      color: white;
+    }
+
+    .mockup-nav-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.5;
+    }
+
+    /* Main area inside mockup */
+    .mockup-main {
+      flex: 1;
+      padding: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mockup-greeting { font-size: 14px; font-weight: 700; }
+    .mockup-sub { font-size: 9px; color: var(--text-secondary); margin-top: 2px; }
+    .mockup-sub span { color: var(--brand); font-weight: 600; }
+
+    .mockup-connect-btns { display: flex; gap: 6px; }
+    .mockup-btn-g {
+      background: #1a1c23;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 4px 8px;
+      font-size: 8px;
+      color: var(--text-secondary);
+      display: flex; align-items: center; gap: 3px;
+    }
+    .mockup-btn-fb {
+      background: var(--brand);
+      border-radius: 5px;
+      padding: 4px 8px;
+      font-size: 8px;
+      color: white;
+    }
+
+    .mockup-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .mockup-stat {
+      background: #1a1c23;
+      border-radius: 6px;
+      padding: 8px 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-stat::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+
+    .ms-amber::before { background: #f59e0b; }
+    .ms-orange::before { background: var(--brand); }
+    .ms-blue::before { background: #3b82f6; }
+    .ms-green::before { background: #22c55e; }
+
+    .mockup-stat-label { font-size: 7px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .mockup-stat-value { font-size: 18px; font-weight: 800; line-height: 1; }
+    .mockup-stat-sub { font-size: 7px; color: var(--text-secondary); margin-top: 2px; }
+
+    .mockup-content { display: flex; gap: 10px; flex: 1; overflow: hidden; }
+
+    .mockup-reviews { flex: 1; display: flex; flex-direction: column; gap: 7px; }
+
+    .mockup-review-card {
+      background: #1a1c23;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 9px 11px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .mockup-review-card.low { border-left: 2px solid #ef4444; }
+    .mockup-review-card.responded { border-left: 2px solid #22c55e; }
+
+    .mockup-avatar {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: #2a2d3a;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .mockup-review-info { flex: 1; min-width: 0; }
+    .mockup-reviewer { font-size: 9px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+    .mockup-platform {
+      font-size: 7px;
+      padding: 1px 5px;
+      border-radius: 10px;
+      background: rgba(66,133,244,0.15);
+      color: #60a5fa;
+    }
+    .mockup-platform.fb { background: rgba(129,140,248,0.15); color: #818cf8; }
+
+    .mockup-stars { color: var(--star); font-size: 8px; margin: 2px 0; }
+    .mockup-text { font-size: 8px; color: var(--text-secondary); line-height: 1.4; }
+
+    .mockup-badge {
+      font-size: 7px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .mockup-badge.pending { background: rgba(216,90,48,0.15); color: var(--brand); }
+    .mockup-badge.responded { background: rgba(34,197,94,0.12); color: #4ade80; }
+
+    /* Right panel inside mockup */
+    .mockup-right {
+      width: 140px;
+      min-width: 140px;
+      background: #1a1c23;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mockup-rep-label { font-size: 7px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 4px; }
+    .mockup-score { font-size: 32px; font-weight: 900; color: #f59e0b; line-height: 1; }
+    .mockup-score-label { font-size: 8px; color: #f59e0b; font-weight: 600; margin-top: 3px; }
+    .mockup-score-tip { font-size: 7px; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+
+    .mockup-divider { height: 1px; background: var(--border); }
+
+    .mockup-sent-label { font-size: 7px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 6px; }
+    .mockup-bar-row { display: flex; align-items: center; gap: 5px; margin-bottom: 4px; }
+    .mockup-bar-name { font-size: 7px; color: var(--text-secondary); width: 30px; flex-shrink: 0; }
+    .mockup-bar-bg { flex: 1; height: 4px; background: var(--border); border-radius: 10px; overflow: hidden; }
+    .mockup-bar-fill { height: 100%; border-radius: 10px; }
+    .mockup-bar-pct { font-size: 7px; color: var(--text-secondary); width: 22px; text-align: right; }
+
+    /* ── PAIN CARDS ── */
+    .pain {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .pain-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .pain-card:hover { border-color: rgba(216,90,48,0.3); transform: translateY(-2px); }
+
+    .pain-icon { font-size: 28px; margin-bottom: 1rem; }
+
+    .pain-card strong {
+      font-size: 15px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .pain-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; font-weight: 300; }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--border); max-width: 1000px; margin: 2.5rem auto; }
+
+    /* ── SECTION ── */
+    .section { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-label { text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 2px; color: var(--brand); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 36px); text-align: center; font-weight: 700; margin-bottom: 2.5rem; }
+
+    /* ── STEPS ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; margin-bottom: 3rem; }
+
+    .step { text-align: center; padding: 1.75rem 1.25rem; background: var(--bg-card); border-radius: 14px; border: 1px solid var(--border); }
+
+    .step-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(216,90,48,0.15);
+      color: var(--brand);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700;
+      margin: 0 auto 1rem;
+      font-family: 'Playfair Display', serif;
+      border: 1px solid rgba(216,90,48,0.25);
+    }
+
+    .step h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
+    .step p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; font-weight: 300; }
+
+    /* ── PRICING ── */
+    .pricing-card {
+      max-width: 380px;
+      margin: 0 auto 4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--brand);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 40px rgba(216,90,48,0.1);
+    }
+
+    .pricing-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 1rem 0 0.25rem;
+    }
+
+    .pricing-price sup { font-size: 24px; vertical-align: super; }
+    .pricing-price span { font-size: 18px; color: var(--text-secondary); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+    .pricing-desc { color: var(--text-secondary); font-size: 14px; margin-bottom: 1.5rem; font-weight: 300; }
+
+    .pricing-features { text-align: left; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 10px; }
+
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .pricing-feature::before {
+      content: '✓';
+      color: #4ade80;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── FINAL CTA ── */
+    .final {
+      text-align: center;
+      padding: 3rem 1.5rem 6rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .final p { font-size: 16px; color: var(--text-secondary); margin: 1rem 0 2rem; font-weight: 300; line-height: 1.7; }
+
+    /* ── WAITLIST FORM ── */
+    .waitlist-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
     .waitlist-box h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 0.5rem; }
-    .waitlist-box p { font-size: 14px; color: #666; margin-bottom: 1.25rem; font-weight: 300; }
+    .waitlist-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.25rem; font-weight: 300; }
+
     .form-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
-    .form-input { padding: 13px 16px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; font-family: 'DM Sans', sans-serif; outline: none; width: 100%; }
-    .form-input:focus { border-color: #D85A30; }
-    .btn-primary { background: #D85A30; color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; width: 100%; }
-    .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
-    .fine { font-size: 12px; color: #999; margin-top: 0.5rem; text-align: center; }
-    .success-msg { display: none; background: #EAF3DE; color: #3B6D11; border-radius: 10px; padding: 1rem; text-align: center; font-size: 14px; margin-top: 10px; }
-    .pain { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
-    .pain-card { background: #faf9f7; border-radius: 14px; padding: 1.5rem; border: 1px solid #f0ede8; }
-    .pain-icon { font-size: 24px; margin-bottom: 0.75rem; }
-    .pain-card strong { font-size: 15px; font-weight: 500; display: block; margin-bottom: 0.5rem; }
-    .pain-card p { font-size: 14px; color: #666; line-height: 1.6; font-weight: 300; }
-    hr { border: none; border-top: 1px solid #f0ede8; max-width: 900px; margin: 2.5rem auto; }
-    .section { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-    .section-label { text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 2px; color: #aaa; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 32px); text-align: center; font-weight: 700; margin-bottom: 2.5rem; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 3rem; }
-    .step { text-align: center; padding: 1.5rem 1rem; }
-    .step-num { width: 44px; height: 44px; border-radius: 50%; background: #FAECE7; color: #993C1D; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; margin: 0 auto 1rem; font-family: 'Playfair Display', serif; }
-    .step h3 { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
-    .step p { font-size: 13px; color: #666; line-height: 1.6; font-weight: 300; }
-    .final { text-align: center; padding: 2rem 1.5rem 5rem; max-width: 600px; margin: 0 auto; }
-    .final p { font-size: 15px; color: #666; margin: 1rem 0 2rem; font-weight: 300; }
-    footer { text-align: center; padding: 2rem; font-size: 12px; color: #bbb; border-top: 1px solid #f0ede8; }
+
+    .form-input {
+      padding: 13px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0f1117;
+      color: var(--text);
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+
+    .form-input:focus { border-color: var(--brand); }
+    .form-input::placeholder { color: var(--text-muted); }
+
+    .btn-full {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      width: 100%;
+      transition: background 0.15s;
+    }
+
+    .btn-full:hover { background: var(--brand-hover); }
+    .btn-full:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .fine { font-size: 12px; color: var(--text-muted); margin-top: 0.75rem; text-align: center; }
+
+    .success-msg {
+      display: none;
+      background: rgba(34,197,94,0.1);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--brand); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .mockup-sidebar { display: none; }
+      .mockup-right { display: none; }
+      .mockup-stats { grid-template-columns: repeat(2, 1fr); }
+      nav { padding: 1rem; }
+      .hero { padding: 3rem 1rem 2rem; }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">Guest<span>Star</span></div>
-    <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join waitlist</button>
+    <div class="logo">
+      <div class="logo-icon">⭐</div>
+      Guest<span>Star</span>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.mygueststar.com" class="nav-link">Sign in</a>
+      <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Get early access</button>
+    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="badge">For restaurant owners — Early access</div>
+    <div class="badge">🍽️ Built for restaurant owners</div>
     <h1>Never lose a customer to an <em>unanswered review</em> again</h1>
-    <p class="sub">GuestStar brings all your Google and Facebook reviews into one place — and helps you respond in seconds with AI.</p>
+    <p class="sub">GuestStar brings all your Google and Facebook reviews into one dashboard — and helps you respond in seconds with AI.</p>
+    <div class="hero-ctas">
+      <a href="https://app.mygueststar.com" class="btn-primary">
+        Try the app free →
+      </a>
+      <button class="btn-ghost" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+        Join waitlist
+      </button>
+    </div>
+    <p class="hero-note">No credit card required · First 10 restaurants get 30 days free</p>
   </section>
 
+  <!-- APP PREVIEW MOCKUP -->
+  <div class="preview-wrapper">
+    <div class="app-mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ef4444"></div>
+        <div class="mockup-dot" style="background:#f59e0b"></div>
+        <div class="mockup-dot" style="background:#22c55e"></div>
+        <div class="mockup-url">app.mygueststar.com/dashboard</div>
+      </div>
+      <div class="mockup-body">
+
+        <!-- Sidebar -->
+        <div class="mockup-sidebar">
+          <div class="mockup-logo">
+            <div class="mockup-logo-icon">⭐</div>
+            Guest<span style="color:var(--brand)">Star</span>
+          </div>
+          <div class="mockup-nav-item active">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Dashboard
+          </div>
+          <div class="mockup-nav-item">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            All Reviews
+          </div>
+          <div class="mockup-nav-item">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#60a5fa" stroke="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Responses
+          </div>
+          <div class="mockup-nav-item" style="position:relative">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+            Alerts
+            <span style="background:var(--brand);color:white;font-size:7px;padding:1px 5px;border-radius:10px;margin-left:auto">3</span>
+          </div>
+          <div class="mockup-nav-item">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="none"><rect x="2" y="13" width="4" height="8" rx="1" fill="#f59e0b"/><rect x="9" y="8" width="4" height="13" rx="1" fill="#D85A30"/><rect x="16" y="4" width="4" height="17" rx="1" fill="#4ade80"/></svg>
+            Analytics
+          </div>
+        </div>
+
+        <!-- Main -->
+        <div class="mockup-main">
+          <div class="mockup-header">
+            <div>
+              <div class="mockup-greeting">Good morning 👋</div>
+              <div class="mockup-sub">You have <span>4 reviews</span> waiting</div>
+            </div>
+            <div class="mockup-connect-btns">
+              <div class="mockup-btn-g">
+                <svg width="8" height="8" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z"/></svg>
+                Google
+              </div>
+              <div class="mockup-btn-fb">+ Facebook</div>
+            </div>
+          </div>
+
+          <div class="mockup-stats">
+            <div class="mockup-stat ms-amber">
+              <div class="mockup-stat-label">Avg Rating</div>
+              <div class="mockup-stat-value">4.2</div>
+              <div class="mockup-stat-sub">↑ +0.3 vs last month</div>
+            </div>
+            <div class="mockup-stat ms-orange">
+              <div class="mockup-stat-label">Pending</div>
+              <div class="mockup-stat-value" style="color:var(--brand)">4</div>
+              <div class="mockup-stat-sub" style="color:#ef4444">↓ Need attention</div>
+            </div>
+            <div class="mockup-stat ms-blue">
+              <div class="mockup-stat-label">Total Reviews</div>
+              <div class="mockup-stat-value" style="color:#60a5fa">127</div>
+              <div class="mockup-stat-sub">↑ +12 this month</div>
+            </div>
+            <div class="mockup-stat ms-green">
+              <div class="mockup-stat-label">Response Rate</div>
+              <div class="mockup-stat-value" style="color:#4ade80">78%</div>
+              <div class="mockup-stat-sub">↑ +5% vs last month</div>
+            </div>
+          </div>
+
+          <div class="mockup-content">
+            <div class="mockup-reviews">
+              <div class="mockup-review-card">
+                <div class="mockup-avatar">M</div>
+                <div class="mockup-review-info">
+                  <div class="mockup-reviewer">
+                    Maria Santos
+                    <span class="mockup-platform">G Google</span>
+                  </div>
+                  <div class="mockup-stars">★★★★★</div>
+                  <div class="mockup-text">The pasta carbonara was the best I've ever had outside of Rome...</div>
+                </div>
+                <div class="mockup-badge responded">✓ Responded</div>
+              </div>
+              <div class="mockup-review-card low">
+                <div class="mockup-avatar">T</div>
+                <div class="mockup-review-info">
+                  <div class="mockup-reviewer">
+                    Tanya Rivera
+                    <span class="mockup-platform fb">f Facebook</span>
+                  </div>
+                  <div class="mockup-stars" style="color:#ef4444">★☆☆☆☆</div>
+                  <div class="mockup-text">Found a hair in my salad and the waiter just shrugged...</div>
+                </div>
+                <div class="mockup-badge pending">PENDING</div>
+              </div>
+              <div class="mockup-review-card">
+                <div class="mockup-avatar">D</div>
+                <div class="mockup-review-info">
+                  <div class="mockup-reviewer">
+                    Derek Kim
+                    <span class="mockup-platform">G Google</span>
+                  </div>
+                  <div class="mockup-stars">★★★★☆</div>
+                  <div class="mockup-text">Great cocktails and generous portions. Truffle fries are worth...</div>
+                </div>
+                <div class="mockup-badge pending">PENDING</div>
+              </div>
+            </div>
+
+            <!-- Right panel -->
+            <div class="mockup-right">
+              <div>
+                <div class="mockup-rep-label">Reputation Score</div>
+                <div class="mockup-score">78</div>
+                <div class="mockup-score-label">Good — improving</div>
+                <div class="mockup-score-tip">Respond to 4 pending reviews to reach 85+</div>
+              </div>
+              <div class="mockup-divider"></div>
+              <div>
+                <div class="mockup-sent-label">Sentiment</div>
+                <div class="mockup-bar-row">
+                  <span class="mockup-bar-name">Positive</span>
+                  <div class="mockup-bar-bg"><div class="mockup-bar-fill" style="width:67%;background:#4ade80"></div></div>
+                  <span class="mockup-bar-pct">67%</span>
+                </div>
+                <div class="mockup-bar-row">
+                  <span class="mockup-bar-name">Neutral</span>
+                  <div class="mockup-bar-bg"><div class="mockup-bar-fill" style="width:17%;background:#94a3b8"></div></div>
+                  <span class="mockup-bar-pct">17%</span>
+                </div>
+                <div class="mockup-bar-row">
+                  <span class="mockup-bar-name">Negative</span>
+                  <div class="mockup-bar-bg"><div class="mockup-bar-fill" style="width:16%;background:#ef4444"></div></div>
+                  <span class="mockup-bar-pct">16%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
   <div class="pain">
     <div class="pain-card">
       <div class="pain-icon">⭐</div>
@@ -80,6 +865,7 @@
 
   <hr />
 
+  <!-- HOW IT WORKS -->
   <div class="section">
     <p class="section-label">How it works</p>
     <h2 class="section-title">Up and running in 2 minutes</h2>
@@ -92,7 +878,7 @@
       <div class="step">
         <div class="step-num">2</div>
         <h3>See every review in one place</h3>
-        <p>All your reviews from every platform appear in one simple, clean dashboard.</p>
+        <p>All your reviews from every platform appear in one clean dashboard with instant alerts.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
@@ -104,9 +890,33 @@
 
   <hr />
 
+  <!-- PRICING -->
+  <div class="section" style="margin-bottom:1rem">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Simple, honest pricing</h2>
+  </div>
+
+  <div class="pricing-card">
+    <div class="pricing-tag">🎉 First 10 restaurants — 30 days free</div>
+    <div class="pricing-price"><sup>$</sup>19<span>/month</span></div>
+    <div class="pricing-desc">Everything you need to protect your reputation</div>
+    <div class="pricing-features">
+      <div class="pricing-feature">All Google & Facebook reviews in one dashboard</div>
+      <div class="pricing-feature">AI-generated responses in seconds</div>
+      <div class="pricing-feature">Reputation Score & sentiment tracking</div>
+      <div class="pricing-feature">Instant alerts for negative reviews</div>
+      <div class="pricing-feature">Unlimited review responses</div>
+      <div class="pricing-feature">Cancel anytime, no contracts</div>
+    </div>
+    <a href="https://app.mygueststar.com" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;padding:14px">
+      Start free trial →
+    </a>
+  </div>
+
+  <!-- FINAL CTA / WAITLIST -->
   <div class="final" id="waitlist">
     <h2 class="section-title">Get free early access</h2>
-    <p>Join restaurant owners already on the waitlist. First 10 members get 30 days free.</p>
+    <p>Join restaurant owners already on the waitlist. First 10 members get 30 days completely free — no credit card needed.</p>
 
     <div class="waitlist-box">
       <h3>Reserve your spot</h3>
@@ -116,7 +926,7 @@
         <input class="form-input" type="email" id="emailInput" placeholder="Your email address" />
         <input class="form-input" type="text" id="restaurantInput" placeholder="Restaurant name" />
       </div>
-      <button class="btn-primary" id="submitBtn" onclick="submitWaitlist()">Get early access — it's free →</button>
+      <button class="btn-full" id="submitBtn" onclick="submitWaitlist()">Get early access — it's free →</button>
       <p class="fine">No credit card. No commitment. Just free early access.</p>
       <div class="success-msg" id="successMsg">
         ✅ You're on the list! We'll reach out personally within 24 hours.
@@ -125,7 +935,7 @@
   </div>
 
   <footer>
-    © 2026 GuestStar · mygueststar.com · All rights reserved
+    © 2026 GuestStar · <a href="https://mygueststar.com">mygueststar.com</a> · All rights reserved
   </footer>
 
   <script>
@@ -133,16 +943,12 @@
       var name = document.getElementById('nameInput').value.trim();
       var email = document.getElementById('emailInput').value.trim();
       var restaurant = document.getElementById('restaurantInput').value.trim();
-      if (!name || !email || !restaurant) {
-        alert('Please fill in all fields.');
-        return;
-      }
+      if (!name || !email || !restaurant) { alert('Please fill in all fields.'); return; }
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Sending...';
       fetch('https://script.google.com/macros/s/AKfycbwB1rPr2dM0LnUzjiw8Sy1TWrRVgpCNTNnRBSfj6dcnTZI4X8jk0WgfxTAANdJxYFqj/exec', {
-        method: 'POST',
-        mode: 'no-cors',
+        method: 'POST', mode: 'no-cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({name: name, email: email, restaurant: restaurant})
       }).then(function() {
@@ -153,9 +959,6 @@
         btn.textContent = 'Sent! ✅';
       }).catch(function() {
         document.getElementById('successMsg').style.display = 'block';
-        document.getElementById('nameInput').value = '';
-        document.getElementById('emailInput').value = '';
-        document.getElementById('restaurantInput').value = '';
         btn.textContent = 'Sent! ✅';
       });
     }
