@@ -673,7 +673,7 @@
     .about-sec p{font-size:14px;color:var(--text-secondary);max-width:540px;margin:0 auto 1.5rem;line-height:1.7;font-weight:300}
     .support-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--brand);border:1px solid rgba(216,90,48,0.3);padding:10px 22px;border-radius:8px;text-decoration:none;transition:background .15s}
     .support-link:hover{background:rgba(216,90,48,0.08)}
-    .wa-btn{position:fixed;bottom:28px;right:28px;z-index:1000;background:#25D366;color:white;border-radius:50px;padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform .15s}
+    .wa-btn{position:fixed;bottom:90px;right:28px;z-index:1000;background:#25D366;color:white;border-radius:50px;padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform .15s}
     .wa-btn:hover{transform:translateY(-2px);color:white;text-decoration:none}
     .sec-note{font-size:11px;color:var(--text-muted);margin-top:1.25rem;text-align:center;line-height:1.6}
     .step-icon-wrap{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,rgba(216,90,48,0.22),rgba(216,90,48,0.05));border:1px solid rgba(216,90,48,0.45);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 0 26px rgba(216,90,48,0.18)}
@@ -711,17 +711,15 @@
   <!-- HERO -->
   <section class="hero">
     <div class="badge">🍽️ Built for restaurant owners</div>
-    <h1>Never lose a customer to an <em>unanswered review</em> again</h1>
+    <h1>Never lose a customer to an <em>unanswered review</em> with AI</h1>
     <p class="sub">GuestStar brings all your Google and Facebook reviews into one dashboard — and helps you respond in seconds with AI.</p>
     <div class="hero-ctas">
       <a href="https://app.mygueststar.com/register" class="btn-primary">
         Start free — 30 days free &rarr;
       </a>
-      <a href="https://app.mygueststar.com" class="btn-ghost">
-        Sign in &rarr;
-      </a>
+      <a href="https://app.mygueststar.com" style="color:#94a3b8;font-size:15px;font-weight:400;text-decoration:none">Log in</a>
     </div>
-    <p class="hero-note">No credit card required &middot; 30-day free trial &middot; Cancel anytime</p>
+    <p class="hero-note" style="font-size:13px;color:var(--text-muted);margin-top:.75rem">&#10003; No credit card &nbsp;&nbsp;&#10003; 30 days free &nbsp;&nbsp;&#10003; Cancel anytime</p>
   </section>
 
   <!-- PAIN POINTS -->
@@ -791,6 +789,26 @@
     </div>
   </div>
 
+  <!-- TRUST BLOCKS -->
+  <div class='section' style='margin-bottom:3rem'>
+    <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:900px;margin:0 auto'>
+      <div style='background:#13151e;border:1px solid #232638;border-radius:16px;padding:2rem'>
+        <div style='width:48px;height:48px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem'>
+          <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='#22c55e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>
+        </div>
+        <h3 style='font-size:17px;font-weight:700;margin-bottom:.75rem'>Secure &amp; Private</h3>
+        <p style='font-size:14px;color:#8b95a8;line-height:1.65;font-weight:300'>GuestStar ensures your data is protected and private. We connect directly with official Google and Meta APIs using encrypted servers.</p>
+      </div>
+      <div style='background:#13151e;border:1px solid #232638;border-radius:16px;padding:2rem'>
+        <div style='width:48px;height:48px;background:rgba(216,90,48,0.1);border:1px solid rgba(216,90,48,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem'>
+          <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='#D85A30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>
+        </div>
+        <h3 style='font-size:17px;font-weight:700;margin-bottom:.75rem'>Who We Are</h3>
+        <p style='font-size:14px;color:#8b95a8;line-height:1.65;font-weight:300'>Our professional team helps independent restaurants manage, automate, and improve their online reputation effortlessly. Need help? Contact us anytime.</p>
+        <a href='mailto:support@gueststar.com' style='display:inline-block;margin-top:1rem;font-size:14px;color:#D85A30;font-weight:500'>support@gueststar.com</a>
+      </div>
+    </div>
+  </div>
   <hr />
 
   <!-- PRICING -->
@@ -817,30 +835,15 @@
   </div>
 
   <!-- REGISTRATION CTA -->
-  <!-- PRIVACY GUARANTEE -->
-  <div class='section' style='margin-bottom:3rem'>
-    <div class='privacy-box'>
-      <div style='font-size:34px;margin-bottom:.75rem'>&#128737;</div>
-      <h3>Your privacy, guaranteed</h3>
-      <p><strong style='color:var(--text)'>GuestStar never stores your passwords.</strong> Your connection to Google and Facebook is direct and encrypted &mdash; your credentials pass exclusively through Google and Meta official servers, never through ours. We only sync your customers' public ratings to help you manage your online reputation.</p>
-    </div>
-  </div>
-
-  <!-- ABOUT / SUPPORT -->
-  <div class='section about-sec'>
-    <p><strong style='color:var(--text)'>GuestStar</strong> is a platform built by technology professionals to help independent restaurant owners grow and protect their online reputation. Our team is available to help you at every step.</p>
-    <a href='mailto:soporte@mygueststar.com' class='support-link'>&#9993;&nbsp;&nbsp;soporte@mygueststar.com</a>
-  </div>
-
   <div class="final" id="register">
     <h2 class="section-title">Ready to take control of your reviews?</h2>
     <p>Create your account in 60 seconds. 30 days completely free, then just &#36;19/month &mdash; no contracts, cancel anytime.</p>
     <div style="display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto 2.5rem">
       <a href="https://app.mygueststar.com/register" class="btn-primary" style="justify-content:center;font-size:16px;padding:16px 28px">
-        Create free account &rarr;
+        Create free account
       </a>
       <a href="https://app.mygueststar.com" class="btn-ghost" style="justify-content:center;font-size:14px">
-        Already have an account? Sign in
+        Already have an account? Sign In
       </a>
     </div>
     <div style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap">
