@@ -663,6 +663,16 @@
       nav { padding: 1rem; }
       .hero { padding: 3rem 1rem 2rem; }
     }
+    .privacy-box{background:rgba(216,90,48,0.06);border:1px solid rgba(216,90,48,0.25);border-radius:16px;padding:2rem 2.5rem;max-width:680px;margin:0 auto;text-align:center}
+    .privacy-box h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:.75rem;font-weight:700}
+    .privacy-box p{font-size:14px;color:var(--text-secondary);line-height:1.7;font-weight:300;max-width:540px;margin:0 auto}
+    .about-sec{text-align:center;margin-bottom:3rem}
+    .about-sec p{font-size:14px;color:var(--text-secondary);max-width:540px;margin:0 auto 1.5rem;line-height:1.7;font-weight:300}
+    .support-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--brand);border:1px solid rgba(216,90,48,0.3);padding:10px 22px;border-radius:8px;text-decoration:none;transition:background .15s}
+    .support-link:hover{background:rgba(216,90,48,0.08)}
+    .wa-btn{position:fixed;bottom:28px;right:28px;z-index:1000;background:#25D366;color:white;border-radius:50px;padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform .15s}
+    .wa-btn:hover{transform:translateY(-2px);color:white;text-decoration:none}
+    .sec-note{font-size:11px;color:var(--text-muted);margin-top:1.25rem;text-align:center;line-height:1.6}
   </style>
 </head>
 <body>
@@ -917,6 +927,21 @@
   </div>
 
   <!-- REGISTRATION CTA -->
+  <!-- PRIVACY GUARANTEE -->
+  <div class='section' style='margin-bottom:3rem'>
+    <div class='privacy-box'>
+      <div style='font-size:34px;margin-bottom:.75rem'>&#128737;</div>
+      <h3>Tu privacidad, garantizada</h3>
+      <p><strong style='color:var(--text)'>GuestStar nunca almacena tus contrase&ntilde;as.</strong> La conexi&oacute;n con Google y Facebook es directa y cifrada &mdash; tus credenciales pasan exclusivamente por los servidores oficiales de Google y Meta, nunca por los nuestros. Solo sincronizamos las calificaciones p&uacute;blicas de tus clientes para ayudarte a gestionar tu reputaci&oacute;n online.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT / SUPPORT -->
+  <div class='section about-sec'>
+    <p><strong style='color:var(--text)'>GuestStar</strong> es una plataforma desarrollada por profesionales de tecnolog&iacute;a para potenciar comercios locales en EE.UU. Nuestro equipo est&aacute; disponible para ayudarte en cada paso del proceso.</p>
+    <a href='mailto:soporte@mygueststar.com' class='support-link'>&#9993;&nbsp;&nbsp;soporte@mygueststar.com</a>
+  </div>
+
   <div class="final" id="register">
     <h2 class="section-title">Ready to take control of your reviews?</h2>
     <p>Create your account in 60 seconds. 30 days completely free, then just &#36;19/month &mdash; no contracts, cancel anytime.</p>
@@ -933,6 +958,7 @@
       <span style="font-size:13px;color:var(--text-muted)">&#10003;&nbsp; 30 days free</span>
       <span style="font-size:13px;color:var(--text-muted)">&#10003;&nbsp; Cancel anytime</span>
     </div>
+    <p class='sec-note'>&#128274;&nbsp; Conexi&oacute;n 100% segura y cifrada &nbsp;&middot;&nbsp; Cumplimos con las normas de privacidad de Meta y Google</p>
   </div>
 
   <footer>
@@ -942,7 +968,7 @@
       <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">&#128737;&#65039;&nbsp;Your data is private</span>
     </div>
     <div style="margin-bottom:0.5rem;font-size:12px">
-      &copy; 2026 GuestStar &middot; <a href="https://mygueststar.com">mygueststar.com</a> &middot; <a href="#" style="color:var(--text-muted)">Privacy Policy</a> &middot; <a href="#" style="color:var(--text-muted)">Terms of Service</a>
+      &copy; 2026 GuestStar &middot; <a href="https://mygueststar.com">mygueststar.com</a> &middot; <a href="privacy.html" style="color:var(--text-muted)">Privacy Policy</a> &middot; <a href="terms.html" style="color:var(--text-muted)">Terms of Service</a>
     </div>
     <div style="font-size:11px;color:var(--text-muted)">All rights reserved &middot; Built for independent restaurant owners</div>
   </footer>
@@ -973,5 +999,10 @@
     }
   </script>
 
+
+  <a href='https://wa.me/54911586779?text=Hola%2C+tengo+una+consulta+sobre+GuestStar' target='_blank' class='wa-btn'>
+    <svg width='22' height='22' viewBox='0 0 24 24' fill='white'><path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z'/></svg>
+    &iquest;Ten&eacute;s dudas? Chate&aacute; con soporte
+  </a>
 </body>
 </html>
