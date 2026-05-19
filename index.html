@@ -673,6 +673,23 @@
     .wa-btn{position:fixed;bottom:28px;right:28px;z-index:1000;background:#25D366;color:white;border-radius:50px;padding:14px 20px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform .15s}
     .wa-btn:hover{transform:translateY(-2px);color:white;text-decoration:none}
     .sec-note{font-size:11px;color:var(--text-muted);margin-top:1.25rem;text-align:center;line-height:1.6}
+    .step-icon-wrap{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,rgba(216,90,48,0.22),rgba(216,90,48,0.05));border:1px solid rgba(216,90,48,0.45);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 0 26px rgba(216,90,48,0.18)}
+    .step-mini{margin-top:1.25rem;background:#0f1117;border:1px solid #232638;border-radius:10px;padding:14px}
+    .mini-connect{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+    .mini-btn-g{background:#1a1c23;border:1px solid #2a2d3a;border-radius:5px;padding:5px 10px;font-size:9px;color:#8b95a8;display:flex;align-items:center;gap:4px}
+    .mini-btn-fb{background:#D85A30;border-radius:5px;padding:5px 10px;font-size:9px;color:white}
+    .mini-ok{font-size:9px;color:#4ade80;text-align:center}
+    .mini-review{background:#1a1c23;border-radius:7px;padding:10px;border-left:2px solid #22c55e}
+    .mini-stars{color:#f59e0b;font-size:10px;margin-bottom:4px}
+    .mini-rtext{font-size:9px;color:#8b95a8;line-height:1.4;margin-bottom:8px;font-style:italic}
+    .mini-ai{display:inline-flex;align-items:center;gap:4px;background:rgba(216,90,48,0.15);color:#D85A30;border:1px solid rgba(216,90,48,0.3);border-radius:4px;padding:4px 8px;font-size:9px;font-weight:600}
+    .mini-score{text-align:center;padding:4px 0}
+    .mini-num{font-size:34px;font-weight:900;color:#f59e0b;line-height:1}
+    .mini-slabel{font-size:9px;color:#f59e0b;font-weight:600;margin:3px 0 8px}
+    .mini-br{display:flex;align-items:center;gap:5px;margin-bottom:3px}
+    .mini-bn{font-size:8px;color:#8b95a8;width:36px}
+    .mini-bg{flex:1;height:3px;background:#232638;border-radius:3px;overflow:hidden}
+    .mini-bf{height:100%;border-radius:3px}
   </style>
 </head>
 <body>
@@ -680,7 +697,7 @@
   <nav>
     <div class="logo">
       <div class="logo-icon">⭐</div>
-      <span style="letter-spacing:-0.5px">Guest<span style="color:var(--brand);margin-left:0">Star</span></span>
+      Guest<span>Star</span>
     </div>
     <div class="nav-right">
       <a href="https://app.mygueststar.com" class="nav-link">Sign in</a>
@@ -703,159 +720,6 @@
     </div>
     <p class="hero-note">No credit card required &middot; 30-day free trial &middot; Cancel anytime</p>
   </section>
-
-  <!-- APP PREVIEW MOCKUP -->
-  <div class="preview-wrapper">
-    <div class="app-mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot" style="background:#ef4444"></div>
-        <div class="mockup-dot" style="background:#f59e0b"></div>
-        <div class="mockup-dot" style="background:#22c55e"></div>
-        <div class="mockup-url">app.mygueststar.com/dashboard</div>
-      </div>
-      <div class="mockup-body">
-
-        <!-- Sidebar -->
-        <div class="mockup-sidebar">
-          <div class="mockup-logo">
-            <div class="mockup-logo-icon">⭐</div>
-            Guest<span style="color:var(--brand)">Star</span>
-          </div>
-          <div class="mockup-nav-item active">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-            Dashboard
-          </div>
-          <div class="mockup-nav-item">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            All Reviews
-          </div>
-          <div class="mockup-nav-item">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="#60a5fa" stroke="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Responses
-          </div>
-          <div class="mockup-nav-item" style="position:relative">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-            Alerts
-            <span style="background:var(--brand);color:white;font-size:7px;padding:1px 5px;border-radius:10px;margin-left:auto">3</span>
-          </div>
-          <div class="mockup-nav-item">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="none"><rect x="2" y="13" width="4" height="8" rx="1" fill="#f59e0b"/><rect x="9" y="8" width="4" height="13" rx="1" fill="#D85A30"/><rect x="16" y="4" width="4" height="17" rx="1" fill="#4ade80"/></svg>
-            Analytics
-          </div>
-        </div>
-
-        <!-- Main -->
-        <div class="mockup-main">
-          <div class="mockup-header">
-            <div>
-              <div class="mockup-greeting">Good morning 👋</div>
-              <div class="mockup-sub">You have <span>4 reviews</span> waiting</div>
-            </div>
-            <div class="mockup-connect-btns">
-              <div class="mockup-btn-g">
-                <svg width="8" height="8" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z"/></svg>
-                Google
-              </div>
-              <div class="mockup-btn-fb">+ Facebook</div>
-            </div>
-          </div>
-
-          <div class="mockup-stats">
-            <div class="mockup-stat ms-amber">
-              <div class="mockup-stat-label">Avg Rating</div>
-              <div class="mockup-stat-value">4.2</div>
-              <div class="mockup-stat-sub">↑ +0.3 vs last month</div>
-            </div>
-            <div class="mockup-stat ms-orange">
-              <div class="mockup-stat-label">Pending</div>
-              <div class="mockup-stat-value" style="color:var(--brand)">4</div>
-              <div class="mockup-stat-sub" style="color:#ef4444">↓ Need attention</div>
-            </div>
-            <div class="mockup-stat ms-blue">
-              <div class="mockup-stat-label">Total Reviews</div>
-              <div class="mockup-stat-value" style="color:#60a5fa">127</div>
-              <div class="mockup-stat-sub">↑ +12 this month</div>
-            </div>
-            <div class="mockup-stat ms-green">
-              <div class="mockup-stat-label">Response Rate</div>
-              <div class="mockup-stat-value" style="color:#4ade80">78%</div>
-              <div class="mockup-stat-sub">↑ +5% vs last month</div>
-            </div>
-          </div>
-
-          <div class="mockup-content">
-            <div class="mockup-reviews">
-              <div class="mockup-review-card">
-                <div class="mockup-avatar">M</div>
-                <div class="mockup-review-info">
-                  <div class="mockup-reviewer">
-                    Maria Santos
-                    <span class="mockup-platform">G Google</span>
-                  </div>
-                  <div class="mockup-stars">★★★★★</div>
-                  <div class="mockup-text">The pasta carbonara was the best I've ever had outside of Rome...</div>
-                </div>
-                <div class="mockup-badge responded">✓ Responded</div>
-              </div>
-              <div class="mockup-review-card low">
-                <div class="mockup-avatar">T</div>
-                <div class="mockup-review-info">
-                  <div class="mockup-reviewer">
-                    Tanya Rivera
-                    <span class="mockup-platform fb">f Facebook</span>
-                  </div>
-                  <div class="mockup-stars" style="color:#ef4444">★☆☆☆☆</div>
-                  <div class="mockup-text">Found a hair in my salad and the waiter just shrugged...</div>
-                </div>
-                <div class="mockup-badge pending">PENDING</div>
-              </div>
-              <div class="mockup-review-card">
-                <div class="mockup-avatar">D</div>
-                <div class="mockup-review-info">
-                  <div class="mockup-reviewer">
-                    Derek Kim
-                    <span class="mockup-platform">G Google</span>
-                  </div>
-                  <div class="mockup-stars">★★★★☆</div>
-                  <div class="mockup-text">Great cocktails and generous portions. Truffle fries are worth...</div>
-                </div>
-                <div class="mockup-badge pending">PENDING</div>
-              </div>
-            </div>
-
-            <!-- Right panel -->
-            <div class="mockup-right">
-              <div>
-                <div class="mockup-rep-label">Reputation Score</div>
-                <div class="mockup-score">78</div>
-                <div class="mockup-score-label">Good — improving</div>
-                <div class="mockup-score-tip">Respond to 4 pending reviews to reach 85+</div>
-              </div>
-              <div class="mockup-divider"></div>
-              <div>
-                <div class="mockup-sent-label">Sentiment</div>
-                <div class="mockup-bar-row">
-                  <span class="mockup-bar-name">Positive</span>
-                  <div class="mockup-bar-bg"><div class="mockup-bar-fill" style="width:67%;background:#4ade80"></div></div>
-                  <span class="mockup-bar-pct">67%</span>
-                </div>
-                <div class="mockup-bar-row">
-                  <span class="mockup-bar-name">Neutral</span>
-                  <div class="mockup-bar-bg"><div class="mockup-bar-fill" style="width:17%;background:#94a3b8"></div></div>
-                  <span class="mockup-bar-pct">17%</span>
-                </div>
-                <div class="mockup-bar-row">
-                  <span class="mockup-bar-name">Negative</span>
-                  <div class="mockup-bar-bg"><div class="mockup-bar-fill" style="width:16%;background:#ef4444"></div></div>
-                  <span class="mockup-bar-pct">16%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- PAIN POINTS -->
   <div class="pain">
@@ -884,19 +748,42 @@
     <h2 class="section-title">Up and running in 2 minutes</h2>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
-        <h3>Connect your profiles</h3>
-        <p>Link your Google Business and Facebook page. Takes under 2 minutes, no tech skills needed.</p>
+        <div class='step-icon-wrap'><svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D85A30' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></svg></div>
+        <h3>Connect your account in one click</h3>
+        <p>Link your Google Business Profile and Facebook Page in under 60 seconds. No tech skills needed.</p>
+        <div class='step-mini'>
+          <div class='mini-connect'>
+            <div class='mini-btn-g'><svg width='9' height='9' viewBox='0 0 18 18'><path fill='#4285F4' d='M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z'/><path fill='#34A853' d='M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z'/><path fill='#FBBC05' d='M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z'/><path fill='#EA4335' d='M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z'/></svg>&nbsp;Connect Google</div>
+            <div class='mini-btn-fb'>+ Facebook</div>
+          </div>
+          <div class='mini-ok'>&#10003; Connected in under 60 seconds</div>
+        </div>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
-        <h3>See every review in one place</h3>
-        <p>All your reviews from every platform appear in one clean dashboard with instant alerts.</p>
+        <div class='step-icon-wrap'><svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D85A30' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg></div>
+        <h3>Automate your customer engagement</h3>
+        <p>GuestStar instantly suggests the perfect AI-crafted reply for every review. You approve and send in seconds.</p>
+        <div class='step-mini'>
+          <div class='mini-review'>
+            <div class='mini-stars'>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class='mini-rtext'>&quot;The pasta was the best I have ever had outside of Rome...&quot;</div>
+            <div class='mini-ai'>&#10024; AI Suggest &rarr;</div>
+          </div>
+        </div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
-        <h3>Reply in seconds with AI</h3>
-        <p>GuestStar drafts the perfect response for each review. You approve and send — done.</p>
+        <div class='step-icon-wrap'><svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='#D85A30' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='23 6 13.5 15.5 8.5 10.5 1 18'/><polyline points='17 6 23 6 23 12'/></svg></div>
+        <h3>Your Google and Facebook ratings grow</h3>
+        <p>Consistent professional responses build customer trust and boost your visibility on Google Maps and Facebook.</p>
+        <div class='step-mini'>
+          <div class='mini-score'>
+            <div class='mini-num'>78</div>
+            <div class='mini-slabel'>Good &mdash; improving &#8593;</div>
+            <div class='mini-br'><span class='mini-bn'>Positive</span><div class='mini-bg'><div class='mini-bf' style='width:67%;background:#4ade80'></div></div></div>
+            <div class='mini-br'><span class='mini-bn'>Neutral</span><div class='mini-bg'><div class='mini-bf' style='width:17%;background:#94a3b8'></div></div></div>
+            <div class='mini-br'><span class='mini-bn'>Negative</span><div class='mini-bg'><div class='mini-bf' style='width:16%;background:#ef4444'></div></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
