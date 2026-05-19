@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><link rel="icon" href="/favicon.ico">
@@ -66,7 +66,7 @@
       font-size: 14px;
     }
 
-    .logo span { color: var(--brand); }
+    .logo span { color: var(--brand); margin-left: -1px; }
 
     .nav-right { display: flex; align-items: center; gap: 12px; }
 
@@ -499,15 +499,16 @@
     .step { text-align: center; padding: 1.75rem 1.25rem; background: var(--bg-card); border-radius: 14px; border: 1px solid var(--border); }
 
     .step-num {
-      width: 44px; height: 44px;
+      width: 56px; height: 56px;
       border-radius: 50%;
-      background: rgba(216,90,48,0.15);
+      background: linear-gradient(135deg, rgba(216,90,48,0.28), rgba(216,90,48,0.06));
       color: var(--brand);
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-weight: 700;
-      margin: 0 auto 1rem;
+      font-size: 24px; font-weight: 800;
+      margin: 0 auto 1.25rem;
       font-family: 'Playfair Display', serif;
-      border: 1px solid rgba(216,90,48,0.25);
+      border: 1px solid rgba(216,90,48,0.5);
+      box-shadow: 0 0 28px rgba(216,90,48,0.2), 0 4px 16px rgba(0,0,0,0.4);
     }
 
     .step h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
@@ -671,7 +672,7 @@
     </div>
     <div class="nav-right">
       <a href="https://app.mygueststar.com" class="nav-link">Sign in</a>
-      <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Get early access</button>
+      <a href="https://app.mygueststar.com/register" class="nav-cta">Start free trial &rarr;</a>
     </div>
   </nav>
 
@@ -681,14 +682,14 @@
     <h1>Never lose a customer to an <em>unanswered review</em> again</h1>
     <p class="sub">GuestStar brings all your Google and Facebook reviews into one dashboard — and helps you respond in seconds with AI.</p>
     <div class="hero-ctas">
-      <a href="https://app.mygueststar.com" class="btn-primary">
-        Try the app free →
+      <a href="https://app.mygueststar.com/register" class="btn-primary">
+        Start free — 30 days free &rarr;
       </a>
-      <button class="btn-ghost" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
-        Join waitlist
-      </button>
+      <a href="https://app.mygueststar.com" class="btn-ghost">
+        Sign in &rarr;
+      </a>
     </div>
-    <p class="hero-note">No credit card required · First 10 restaurants get 30 days free</p>
+    <p class="hero-note">No credit card required &middot; 30-day free trial &middot; Cancel anytime</p>
   </section>
 
   <!-- APP PREVIEW MOCKUP -->
@@ -908,38 +909,44 @@
       <div class="pricing-feature">Unlimited review responses</div>
       <div class="pricing-feature">Cancel anytime, no contracts</div>
     </div>
-    <a href="https://app.mygueststar.com" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;padding:14px">
+    <a href="https://app.mygueststar.com/register" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;padding:14px">
       Start free trial →
     </a>
   </div>
 
-  <!-- FINAL CTA / WAITLIST -->
-  <div class="final" id="waitlist">
-    <h2 class="section-title">Get free early access</h2>
-    <p>Join restaurant owners already on the waitlist. First 10 members get 30 days completely free — no credit card needed.</p>
-
-    <div class="waitlist-box">
-      <h3>Reserve your spot</h3>
-      <p>Enter your details and we'll reach out personally when your access is ready.</p>
-      <div class="form-group">
-        <input class="form-input" type="text" id="nameInput" placeholder="Your name" />
-        <input class="form-input" type="email" id="emailInput" placeholder="Your email address" />
-        <input class="form-input" type="text" id="restaurantInput" placeholder="Restaurant name" />
-      </div>
-      <button class="btn-full" id="submitBtn" onclick="submitWaitlist()">Get early access — it's free →</button>
-      <p class="fine">No credit card. No commitment. Just free early access.</p>
-      <div class="success-msg" id="successMsg">
-        ✅ You're on the list! We'll reach out personally within 24 hours.
-      </div>
+  <!-- REGISTRATION CTA -->
+  <div class="final" id="register">
+    <h2 class="section-title">Ready to take control of your reviews?</h2>
+    <p>Create your account in 60 seconds. 30 days completely free, then just &#36;19/month &mdash; no contracts, cancel anytime.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto 2.5rem">
+      <a href="https://app.mygueststar.com/register" class="btn-primary" style="justify-content:center;font-size:16px;padding:16px 28px">
+        Create free account &rarr;
+      </a>
+      <a href="https://app.mygueststar.com" class="btn-ghost" style="justify-content:center;font-size:14px">
+        Already have an account? Sign in
+      </a>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap">
+      <span style="font-size:13px;color:var(--text-muted)">&#10003;&nbsp; No credit card</span>
+      <span style="font-size:13px;color:var(--text-muted)">&#10003;&nbsp; 30 days free</span>
+      <span style="font-size:13px;color:var(--text-muted)">&#10003;&nbsp; Cancel anytime</span>
     </div>
   </div>
 
   <footer>
-    © 2026 GuestStar · <a href="https://mygueststar.com">mygueststar.com</a> · All rights reserved
+    <div style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:1.25rem">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">&#128274;&nbsp;SSL Secured</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">&#128179;&nbsp;Payments by Stripe</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)">&#128737;&#65039;&nbsp;Your data is private</span>
+    </div>
+    <div style="margin-bottom:0.5rem;font-size:12px">
+      &copy; 2026 GuestStar &middot; <a href="https://mygueststar.com">mygueststar.com</a> &middot; <a href="#" style="color:var(--text-muted)">Privacy Policy</a> &middot; <a href="#" style="color:var(--text-muted)">Terms of Service</a>
+    </div>
+    <div style="font-size:11px;color:var(--text-muted)">All rights reserved &middot; Built for independent restaurant owners</div>
   </footer>
 
   <script>
-    function submitWaitlist() {
+    // Registration handled by app {
       var name = document.getElementById('nameInput').value.trim();
       var email = document.getElementById('emailInput').value.trim();
       var restaurant = document.getElementById('restaurantInput').value.trim();
