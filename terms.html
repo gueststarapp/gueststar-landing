@@ -1,122 +1,174 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service - GuestStar</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <title>Terms of Service - MyGuestStar</title>
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--brand:#D85A30;--bg:#0a0c11;--bg-card:#13151e;--border:#232638;--text:#f0f0f0;--text-secondary:#8b95a8;--text-muted:#4a5168}
-    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
-    nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 2rem;border-bottom:1px solid var(--border);max-width:860px;margin:0 auto}
-    .logo{font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px}
-    .logo-icon{width:28px;height:28px;background:var(--brand);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px}
-    .logo span{color:var(--brand)}
-    .container{max-width:760px;margin:0 auto;padding:3rem 1.5rem 6rem}
-    h1{font-size:32px;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.5px}
-    .updated{font-size:13px;color:var(--text-muted);margin-bottom:2.5rem}
-    h2{font-size:18px;font-weight:600;margin:2rem 0 0.75rem;color:var(--text)}
-    p{font-size:14px;color:var(--text-secondary);margin-bottom:1rem;font-weight:300}
-    ul{padding-left:1.5rem;margin-bottom:1rem}
-    li{font-size:14px;color:var(--text-secondary);margin-bottom:0.4rem;font-weight:300}
-    .highlight{background:rgba(216,90,48,0.08);border:1px solid rgba(216,90,48,0.2);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0}
-    .highlight p{margin:0;font-size:14px}
-    footer{text-align:center;padding:2rem;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border)}
-    footer a{color:var(--brand)}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --accent: #E8620A; --bg: #0B0B0B; --bg-card: #111111; --border: #1E1E1E; --text: #F0EDE8; --text-secondary: #888077; --text-muted: #3A3530; }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav-outer { position: sticky; top: 0; background: rgba(11,11,11,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 860px; margin: 0 auto; }
+    .logo { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; letter-spacing: -0.5px; }
+    .logo-icon { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px rgba(232,98,10,0.5); }
+    .logo .o { color: var(--accent); } .logo .w { color: var(--text); }
+    .back { font-size: 13px; color: var(--text-secondary); transition: color 0.15s; }
+    .back:hover { color: var(--text); text-decoration: none; }
+    .container { max-width: 760px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+    h1 { font-family: "Fraunces", serif; font-size: 38px; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -1px; }
+    .updated { font-size: 12px; color: var(--text-muted); margin-bottom: 2.5rem; letter-spacing: 0.5px; }
+    h2 { font-size: 16px; font-weight: 600; margin: 2.5rem 0 0.75rem; color: var(--text); letter-spacing: -0.2px; }
+    p { font-size: 14px; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 300; line-height: 1.75; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { font-size: 14px; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 300; line-height: 1.65; }
+    strong { color: var(--text); font-weight: 600; }
+    .highlight { background: rgba(232,98,10,0.06); border: 1px solid rgba(232,98,10,0.18); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .highlight p { margin: 0; }
+    footer { text-align: center; padding: 2rem; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border); }
+    footer a { color: var(--accent); }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">
-      <div class="logo-icon">&#9733;</div>
-      Guest<span>Star</span>
-    </div>
-    <a href="/" style="font-size:14px;color:var(--text-muted)">&larr; Back to home</a>
-  </nav>
-
+  <div class="nav-outer">
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white" stroke="rgba(0,0,0,0.7)" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span><span class="o">My</span><span class="w">Guest</span><span class="o">Star</span></span>
+      </div>
+      <a href="/" class="back">&larr; Back to home</a>
+    </nav>
+  </div>
   <div class="container">
     <h1>Terms of Service</h1>
-    <p class="updated">Last updated: May 2026</p>
+    <p class="updated">Last updated: June 2026</p>
 
-    <p>These Terms of Service ("Terms") govern your access to and use of the GuestStar platform ("Service") operated by GuestStar ("we", "our", or "us"). By creating an account or using the Service, you agree to be bound by these Terms.</p>
+    <p>These Terms of Service ("Terms" or "Agreement") govern your access to and use of the MyGuestStar platform and services ("Service") operated by MyGuestStar ("we", "our", or "us"). By creating an account, clicking to accept, or otherwise using the Service, you agree to be bound by these Terms in their entirety. If you do not agree, do not use the Service.</p>
 
     <div class="highlight">
-      <p><strong style="color:var(--text)">Free Trial:</strong> New accounts receive a 30-day free trial with full access to all features. No credit card is required to start. After the trial period, a subscription of $19/month is required to continue using the Service.</p>
+      <p><strong>Free Trial:</strong> All new accounts receive a 30-day free trial with full access to Starter plan features. No credit card is required to start. After the trial period, a paid subscription is required to continue using the Service.</p>
     </div>
 
     <h2>1. Description of Service</h2>
-    <p>GuestStar is a review management platform designed for restaurant and local business owners. The Service allows users to:</p>
+    <p>MyGuestStar is a review management platform designed for restaurant and local business owners. The Service allows authorized users to:</p>
     <ul>
-      <li>Connect their Google Business Profile and Facebook Page to sync public customer reviews.</li>
-      <li>View and manage all reviews from a unified dashboard.</li>
-      <li>Generate AI-assisted response suggestions for customer reviews.</li>
-      <li>Monitor their business reputation score and sentiment analytics.</li>
+      <li>Connect their Google Business Profile, Facebook Page, and Yelp listing to sync public customer reviews into a unified dashboard.</li>
+      <li>View, organize, and respond to reviews across all connected platforms from a single interface.</li>
+      <li>Generate AI-assisted response suggestions for customer reviews using artificial intelligence.</li>
+      <li>Monitor their business Reputation Score, sentiment analytics, and review activity.</li>
+      <li>Receive instant alerts for new or negative reviews.</li>
     </ul>
 
-    <h2>2. Account Registration</h2>
-    <p>To use GuestStar, you must create an account using a valid email address or a Google account. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</p>
-    <p>You must provide accurate and complete information during registration. You may not use the Service if you are under 18 years of age.</p>
-
-    <h2>3. Subscription and Billing</h2>
+    <h2>2. Account Registration and Eligibility</h2>
+    <p>To use MyGuestStar, you must create an account using a valid email address or a Google account. By registering, you represent and warrant that:</p>
     <ul>
-      <li><strong>Free Trial:</strong> All new accounts receive a 30-day free trial with no credit card required.</li>
-      <li><strong>Paid Subscription:</strong> After the free trial, continued use requires a subscription at $19 USD per month.</li>
-      <li><strong>Billing:</strong> Subscriptions are billed monthly through Stripe, our secure payment processor.</li>
-      <li><strong>Cancellation:</strong> You may cancel your subscription at any time. Cancellation takes effect at the end of the current billing period. No refunds are issued for partial months.</li>
-      <li><strong>Price Changes:</strong> We reserve the right to modify pricing with 30 days advance notice to active subscribers.</li>
+      <li>You are at least 18 years of age.</li>
+      <li>You have the legal authority to accept these Terms on behalf of yourself or the business entity you represent.</li>
+      <li>All information you provide during registration is accurate, complete, and current.</li>
+      <li>You will maintain the confidentiality of your account credentials and are solely responsible for all activity that occurs under your account.</li>
+    </ul>
+    <p>You must notify us immediately at <a href="mailto:info@mygueststar.com">info@mygueststar.com</a> of any unauthorized use of your account. MyGuestStar will not be liable for any loss or damage resulting from unauthorized use of your account.</p>
+
+    <h2>3. Subscription Plans and Billing</h2>
+    <ul>
+      <li><strong>Free Trial:</strong> All new accounts receive a 30-day free trial of the Starter plan features. No credit card is required to start the trial.</li>
+      <li><strong>Starter Plan:</strong> $19 USD per month, billed monthly through Stripe after the free trial ends.</li>
+      <li><strong>Pro and Business Plans:</strong> Additional plans at $39 and $69 per month respectively, available when launched. Features and pricing may evolve; active subscribers will be notified 30 days in advance of any changes.</li>
+      <li><strong>Billing:</strong> All subscriptions are billed monthly in advance through Stripe. You authorize MyGuestStar to charge your payment method on the subscription renewal date.</li>
+      <li><strong>Cancellation:</strong> You may cancel your subscription at any time through your account settings or by contacting support. Cancellation takes effect at the end of the current billing period. No partial-month refunds are issued.</li>
+      <li><strong>Failed Payments:</strong> If a payment fails, we will notify you and attempt to charge the payment method again. If payment remains outstanding after 7 days, the account may be suspended until payment is resolved.</li>
+      <li><strong>Price Changes:</strong> We reserve the right to modify subscription pricing with at least 30 days advance notice to active subscribers by email.</li>
     </ul>
 
     <h2>4. Acceptable Use</h2>
-    <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+    <p>You agree to use the Service only for lawful purposes and in strict compliance with these Terms and all applicable laws and regulations. You agree not to:</p>
     <ul>
-      <li>Use the Service to generate or post fake, misleading, or fraudulent reviews.</li>
-      <li>Violate any applicable laws or regulations, including Google and Meta platform policies.</li>
-      <li>Attempt to gain unauthorized access to any portion of the Service or its related systems.</li>
+      <li>Use the Service to generate, post, or solicit fake, misleading, incentivized, or fraudulent reviews on any platform.</li>
+      <li>Engage in "review gating" — filtering or redirecting customers based on whether they are likely to leave a positive review.</li>
+      <li>Violate the terms of service, policies, or guidelines of Google, Meta (Facebook), Yelp, or any other third-party platform integrated with the Service.</li>
+      <li>Use the Service to harass, defame, threaten, or discriminate against any person or group.</li>
+      <li>Attempt to gain unauthorized access to any part of the Service, its infrastructure, or other users' accounts.</li>
+      <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Service.</li>
       <li>Use automated tools, bots, or scrapers to interact with the Service beyond its intended use.</li>
-      <li>Reproduce, duplicate, or resell any portion of the Service without written permission.</li>
-      <li>Use the Service in any manner that could damage, disable, or impair the platform.</li>
+      <li>Reproduce, sell, resell, or commercially exploit any portion of the Service without our prior written consent.</li>
+      <li>Upload or transmit viruses, malware, or any code designed to disrupt, damage, or limit the functioning of the Service.</li>
+    </ul>
+    <p>Violation of these policies may result in immediate suspension or termination of your account without refund.</p>
+
+    <h2>5. AI-Generated Content</h2>
+    <p>MyGuestStar uses artificial intelligence to generate suggested responses to customer reviews ("AI Suggestions"). You acknowledge and agree that:</p>
+    <ul>
+      <li>AI Suggestions are generated automatically and may not always be accurate, complete, or appropriate for your specific context.</li>
+      <li>You are solely responsible for reviewing, editing, and approving any AI Suggestion before publishing it to any review platform.</li>
+      <li>MyGuestStar is not liable for any consequences arising from AI-generated content that you choose to publish without adequate review.</li>
+      <li>You must disclose your use of AI-assisted responses to your customers where required by applicable law.</li>
+      <li>We do not use your data or your customers' data to train AI models. AI processing is performed by Anthropic under contractual restrictions that prohibit training on your data.</li>
     </ul>
 
-    <h2>5. Third-Party Integrations</h2>
-    <p>GuestStar integrates with third-party platforms including Google and Meta (Facebook). Your use of these integrations is also subject to the respective terms of service of those platforms:</p>
+    <h2>6. Third-Party Integrations</h2>
+    <p>MyGuestStar integrates with third-party platforms including Google, Meta (Facebook), and Yelp. Your use of these integrations is also governed by the terms of service of those respective platforms:</p>
     <ul>
       <li><a href="https://policies.google.com/terms" target="_blank">Google Terms of Service</a></li>
       <li><a href="https://www.facebook.com/terms.php" target="_blank">Meta Terms of Service</a></li>
+      <li><a href="https://terms.yelp.com" target="_blank">Yelp Terms of Service</a></li>
     </ul>
-    <p>We are not responsible for the availability, accuracy, or policies of third-party services.</p>
+    <p>MyGuestStar is not responsible for the availability, performance, accuracy, or policies of third-party platforms. Changes to third-party APIs or policies may affect the functionality of the Service, and we will not be liable for any such impact.</p>
 
-    <h2>6. Intellectual Property</h2>
-    <p>The GuestStar platform, including its design, code, and content, is owned by GuestStar and protected by applicable intellectual property laws. You may not copy, modify, or distribute any part of the Service without our written consent.</p>
-    <p>You retain ownership of your business data and review content. By using the Service, you grant us a limited license to process and display your data solely for the purpose of providing the Service.</p>
+    <h2>7. Your Data and Intellectual Property</h2>
+    <p>You retain full ownership of your business data, review content, and any information you provide to the Service. By using the Service, you grant MyGuestStar a limited, non-exclusive, worldwide, royalty-free license to process, store, and display your data solely for the purpose of providing the Service to you.</p>
+    <p>MyGuestStar retains all rights, title, and interest in and to the platform, its design, code, trademarks, and content. You may not copy, modify, distribute, or create derivative works based on the Service without our prior written consent.</p>
+    <p>We may use anonymized and aggregated usage data derived from your use of the Service to improve the platform and generate industry insights, provided such data cannot be used to identify you or your business.</p>
 
-    <h2>7. Data and Privacy</h2>
-    <p>Your use of the Service is also governed by our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. We handle your data in accordance with applicable privacy laws.</p>
+    <h2>8. Privacy</h2>
+    <p>Your use of the Service is governed by our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. We handle your data in strict accordance with our Privacy Policy and all applicable data protection laws.</p>
 
-    <h2>8. Disclaimer of Warranties</h2>
-    <p>The Service is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or free of harmful components. We do not guarantee specific results from the use of the Service, including improvements to your business reputation or review ratings.</p>
+    <h2>9. Service Availability and Modifications</h2>
+    <p>MyGuestStar will use commercially reasonable efforts to maintain the availability of the Service. However, we do not guarantee uninterrupted, error-free, or completely secure access to the Service at all times. We reserve the right to:</p>
+    <ul>
+      <li>Modify, suspend, or discontinue any feature or aspect of the Service at any time, with reasonable advance notice where practicable.</li>
+      <li>Perform scheduled or emergency maintenance that may temporarily affect availability.</li>
+    </ul>
+    <p>If we make a material change that significantly reduces the core functionality of the Service, you may cancel your subscription and receive a pro-rated refund for the unused portion of your current billing period.</p>
 
-    <h2>9. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, GuestStar shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the Service. Our total liability to you for any claims arising from these Terms or the Service shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
+    <h2>10. Disclaimer of Warranties</h2>
+    <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. MYGUESTSTAR DOES NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF HARMFUL COMPONENTS. WE DO NOT GUARANTEE SPECIFIC RESULTS FROM THE USE OF THE SERVICE, INCLUDING ANY IMPROVEMENT TO YOUR BUSINESS REPUTATION, REVIEW RATINGS, OR ONLINE VISIBILITY.</p>
 
-    <h2>10. Termination</h2>
-    <p>We reserve the right to suspend or terminate your account at any time if you violate these Terms or engage in conduct that we determine to be harmful to the Service or other users. You may close your account at any time through the account settings.</p>
+    <h2>11. Limitation of Liability</h2>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, MYGUESTSTAR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES ARISING FROM OR RELATED TO YOUR USE OF OR INABILITY TO USE THE SERVICE, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, OR BUSINESS INTERRUPTION, EVEN IF MYGUESTSTAR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+    <p>IN ANY CASE, MYGUESTSTAR'S TOTAL CUMULATIVE LIABILITY TO YOU FOR ANY AND ALL CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE TOTAL AMOUNT YOU PAID TO MYGUESTSTAR IN THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
 
-    <h2>11. Changes to Terms</h2>
-    <p>We may update these Terms from time to time. We will notify you of material changes by email or by posting a notice on the platform. Continued use of the Service after changes take effect constitutes acceptance of the new Terms.</p>
+    <h2>12. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless MyGuestStar, its officers, directors, employees, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any applicable law or regulation; or (d) any content you submit, post, or transmit through the Service.</p>
 
-    <h2>12. Governing Law</h2>
-    <p>These Terms are governed by the laws of the United States. Any disputes arising from these Terms or the Service shall be resolved through binding arbitration or in the competent courts of the United States.</p>
+    <h2>13. Termination</h2>
+    <p>Either party may terminate this Agreement at any time:</p>
+    <ul>
+      <li><strong>By you:</strong> cancel your subscription at any time through account settings or by contacting <a href="mailto:info@mygueststar.com">info@mygueststar.com</a>. Termination takes effect at the end of the current billing period.</li>
+      <li><strong>By us:</strong> we reserve the right to suspend or permanently terminate your account immediately and without prior notice if you violate these Terms, engage in fraudulent activity, or cause harm to other users or the platform. In cases of termination for cause, no refund will be issued.</li>
+    </ul>
+    <p>Upon termination, your right to access the Service ceases immediately. Your data will be deleted within 30 days of account termination as described in our Privacy Policy.</p>
 
-    <h2>13. Contact</h2>
-    <p>If you have any questions about these Terms, please contact us at:</p>
-    <p><a href="mailto:soporte@mygueststar.com">soporte@mygueststar.com</a><br/>mygueststar.com</p>
+    <h2>14. Changes to Terms</h2>
+    <p>We may update these Terms from time to time to reflect changes in our practices, legal requirements, or Service features. We will notify you of material changes by email and by posting the updated Terms on this page at least 14 days before they take effect. Your continued use of the Service after the effective date constitutes your acceptance of the updated Terms. If you do not agree with the changes, you may cancel your subscription before they take effect.</p>
+
+    <h2>15. Governing Law and Dispute Resolution</h2>
+    <p>These Terms are governed by the laws of the United States, without regard to its conflict of law provisions. Any dispute arising from or relating to these Terms or the Service that cannot be resolved informally shall first be submitted to good-faith mediation. If mediation fails, disputes shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association. Notwithstanding the foregoing, either party may seek injunctive or other equitable relief in any court of competent jurisdiction.</p>
+
+    <h2>16. Contact</h2>
+    <p>If you have any questions, concerns, or complaints regarding these Terms or the Service, please contact us:</p>
+    <p>
+      <strong>MyGuestStar</strong><br/>
+      <a href="mailto:info@mygueststar.com">info@mygueststar.com</a><br/>
+      <a href="https://mygueststar.com">mygueststar.com</a>
+    </p>
   </div>
-
   <footer>
-    &copy; 2026 GuestStar &middot; <a href="/">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a>
+    &copy; 2026 MyGuestStar &middot; <a href="/">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a>
   </footer>
 </body>
 </html>
