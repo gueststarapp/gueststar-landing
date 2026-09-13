@@ -412,6 +412,7 @@
       background: var(--bg-card);
     }
     footer a { color: var(--accent); }
+    .footer-break { display: none; }
     .footer-badges { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
     .footer-badge { font-size: 13px; color: var(--text-secondary); }
 
@@ -453,6 +454,7 @@
       footer { padding-bottom: 5.5rem; }
       .footer-badges { gap: 0.6rem; flex-wrap: nowrap; }
       .footer-badge { font-size: 10.5px; white-space: nowrap; }
+      .footer-break { display: block; }
     }
     @media (max-width: 480px) {
       h1 { letter-spacing: -1px; }
@@ -764,7 +766,7 @@
       <span class="footer-badge">&#128737;&#65039; Your data is private</span>
     </div>
     <div style="margin-bottom:0.5rem">
-      &copy; 2026 MyGuestStar &middot; <a href="https://mygueststar.com">mygueststar.com</a> &middot; <a href="privacy.html" style="color:var(--text-secondary)">Privacy Policy</a> &middot; <a href="terms.html" style="color:var(--text-secondary)">Terms of Service</a>
+      &copy; 2026 MyGuestStar &middot; <a href="https://mygueststar.com">mygueststar.com</a><br class="footer-break"> <a href="privacy.html" style="color:var(--text-secondary)">Privacy Policy</a> &middot; <a href="terms.html" style="color:var(--text-secondary)">Terms of Service</a>
     </div>
     <div style="font-size:11px;color:var(--text-secondary)">All rights reserved &middot; Built for independent restaurant owners</div>
   </footer>
